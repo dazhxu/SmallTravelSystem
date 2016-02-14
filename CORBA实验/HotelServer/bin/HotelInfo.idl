@@ -1,0 +1,19 @@
+module HotelInfoApp{
+	interface HotelInfo{
+		struct HotelItem{
+			long Id;
+			string Destination;
+			string Name;
+			string Type;
+			long price;
+			long Remains;
+			string date;
+		};
+		
+		typedef sequence<HotelItem> HotelSeq;
+		
+		HotelSeq getHotelInfo(in string dest, in string inData, in string outData, in string type,in string user);
+		long orderHotel(in long id, in string dest,in string name, in string Date, in string type, in long num,in string user);
+		HotelSeq getOrderInfo(in string user);
+	};
+};

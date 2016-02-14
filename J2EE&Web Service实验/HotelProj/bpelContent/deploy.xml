@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy xmlns="http://www.apache.org/ode/schemas/dd/2007/03" xmlns:order.hotel.com="http://order.hotel.com/" xmlns:price.hotel.com="http://price.hotel.com/" xmlns:remains.hotel.com="http://remains.hotel.com/" xmlns:sample="http://eclipse.org/bpel/sample">
+  <process name="sample:HotelorderProcess">
+    <active>true</active>
+    <retired>false</retired>
+    <process-events generate="all"/>
+    <provide partnerLink="client">
+      <service name="sample:HotelorderProcessService" port="HotelorderProcessPort"/>
+    </provide>
+    <invoke partnerLink="pricePL">
+      <service name="price.hotel.com:PriceServiceService" port="PriceServicePort"/>
+    </invoke>
+    <invoke partnerLink="remainPL">
+      <service name="remains.hotel.com:RemainsServiceService" port="RemainsServicePort"/>
+    </invoke>
+    <invoke partnerLink="orderPL">
+      <service name="order.hotel.com:OrderServiceService" port="OrderServicePort"/>
+    </invoke>
+  </process>
+</deploy>

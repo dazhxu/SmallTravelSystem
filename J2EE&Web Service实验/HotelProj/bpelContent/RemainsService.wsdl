@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://remains.hotel.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="RemainsServiceService" targetNamespace="http://remains.hotel.com/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://remains.hotel.com/" elementFormDefault="unqualified" targetNamespace="http://remains.hotel.com/" version="1.0">
+
+  <xs:element name="getRemains" type="tns:getRemains"/>
+
+  <xs:element name="getRemainsResponse" type="tns:getRemainsResponse"/>
+
+  <xs:element name="setRemains" type="tns:setRemains"/>
+
+  <xs:element name="setRemainsResponse" type="tns:setRemainsResponse"/>
+
+  <xs:complexType name="getRemains">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getRemainsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="setRemains">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element name="arg1" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="setRemainsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getRemains">
+    <wsdl:part element="tns:getRemains" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setRemains">
+    <wsdl:part element="tns:setRemains" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getRemainsResponse">
+    <wsdl:part element="tns:getRemainsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setRemainsResponse">
+    <wsdl:part element="tns:setRemainsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RemainsService">
+    <wsdl:operation name="getRemains">
+      <wsdl:input message="tns:getRemains" name="getRemains">
+    </wsdl:input>
+      <wsdl:output message="tns:getRemainsResponse" name="getRemainsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setRemains">
+      <wsdl:input message="tns:setRemains" name="setRemains">
+    </wsdl:input>
+      <wsdl:output message="tns:setRemainsResponse" name="setRemainsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RemainsServiceServiceSoapBinding" type="tns:RemainsService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getRemains">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getRemains">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getRemainsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setRemains">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setRemains">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setRemainsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RemainsServiceService">
+    <wsdl:port binding="tns:RemainsServiceServiceSoapBinding" name="RemainsServicePort">
+      <soap:address location="http://192.168.10.61:8080/HotelService/RemainsService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

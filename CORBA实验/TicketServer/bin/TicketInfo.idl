@@ -1,0 +1,20 @@
+module TicketInfoApp{
+	interface TicketInfo{
+		struct TicketItem{
+			long Id;
+			string Name;
+			string Departure;
+			string Destination;			
+			string StartTime;
+			string ArriveTime;
+			long Price;
+			long Remains;
+		};
+		
+		typedef sequence<TicketItem> TicketSeq;
+		
+		TicketSeq getTicketInfo(in string dept,in string dest, in string startTime,in string user);
+		long orderTicket(in long id,in long num,in string user);
+		TicketSeq getTicketOrderInfo(in string user);
+	};
+};
